@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Professor - Nova Era</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            background-color: #1a0b33;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 10%;
+            background-color: #1a0b33;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .login-button {
+            padding: 8px 20px;
+            border: 1px solid #ffffff;
+            border-radius: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #2e1153;
+            border-radius: 15px;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #8c6cf0;
+            margin-bottom: 15px;
+        }
+
+        /* Formulário */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group select,
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .form-group select {
+            background-color: #ffffff;
+        }
+
+        /* Tabela de Alunos */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .table th {
+            background-color: #8c6cf0;
+            color: #ffffff;
+        }
+
+        .input-falta, .input-nota {
+            width: 80px;
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Botão de Salvar */
+        .save-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #8c6cf0;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .save-button:hover {
+            background-color: #6a51b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Nova Era</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="areaAluno/areaAluno.html">Área do Aluno</a></li>
+                <li><a href="#">Sobre nós</a></li>
+                <li><a href="#">Contatos</a></li>
+                <li><a href="#">É professor?</a></li>
+            </ul>
+            <a href="login.html" class="login-button">Login</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1>Área do Professor</h1>
+        <p>Bem-vindo, professor! Aqui você pode lançar faltas e notas dos alunos.</p>
+
+        <!-- Seleção de Curso e Turma -->
+        <div class="form-group">
+            <label for="curso">Selecione o Curso:</label>
+            <select id="curso">
+                <option value="engenharia-software">Engenharia de Software</option>
+                <option value="administracao">Administração</option>
+                <option value="direito">Direito</option>
+                <option value="medicina">Medicina</option>
+                <option value="ciencias-contabeis">Ciências Contábeis</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="turma">Selecione a Turma/Semestre:</label>
+            <select id="turma">
+                <option value="1-semestre">1º Semestre</option>
+                <option value="2-semestre">2º Semestre</option>
+                <option value="3-semestre">3º Semestre</option>
+                <option value="4-semestre">4º Semestre</option>
+                <option value="5-semestre">5º Semestre</option>
+                <option value="6-semestre">6º Semestre</option>
+                <option value="7-semestre">7º Semestre</option>
+                <option value="8-semestre">8º Semestre</option>
+            </select>
+        </div>
+
+        <!-- Tabela de Lançamento de Notas e Faltas -->
+        <h2 class="section-title">Lançar Faltas e Notas</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Faltas</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>João da Silva</td>
+                    <td><input type="number" class="input-falta" placeholder="Faltas"></td>
+                    <td><input type="number" class="input-nota" placeholder="Nota"></td>
+                </tr>
+                <tr>
+                    <td>Maria Oliveira</td>
+                    <td><input type="number" class="input-falta" placeholder="Faltas"></td>
+                    <td><input type="number" class="input-nota" placeholder="Nota"></td>
+                </tr>
+                <tr>
+                    <td>Pedro Santos</td>
+                    <td><input type="number" class="input-falta" placeholder="Faltas"></td>
+                    <td><input type="number" class="input-nota" placeholder="Nota"></td>
+                </tr>
+                <tr>
+                    <td>Ana Costa</td>
+                    <td><input type="number" class="input-falta" placeholder="Faltas"></td>
+                    <td><input type="number" class="input-nota" placeholder="Nota"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Botão de Salvar Lançamentos -->
+        <button class="save-button" onclick="salvarLancamentos()">Salvar Lançamentos</button>
+    </main>
+
+    <script>
+        function salvarLancamentos() {
+            const curso = document.getElementById("curso").value;
+            const turma = document.getElementById("turma").value;
+            const alunos = Array.from(document.querySelectorAll("tbody tr"));
+            
+            const dados = alunos.map(aluno => {
+                const nome = aluno.cells[0].innerText;
+                const faltas = aluno.querySelector(".input-falta").value;
+                const nota = aluno.querySelector(".input-nota").value;
+                return { nome, faltas, nota };
+            });
+
+            console.log(`Curso: ${curso}`);
+            console.log(`Turma: ${turma}`);
+            console.log("Lançamentos:", dados);
+
+            alert("Lançamentos salvos com sucesso!");
+        }
+    </script>
+</body>
+</html>

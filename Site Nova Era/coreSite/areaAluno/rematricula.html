@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rematrícula - Área do Aluno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2e1153;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .sidebar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1em;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .sidebar nav ul li a.active,
+        .sidebar nav ul li a:hover {
+            background-color: #8c6cf0;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .main-content h1 {
+            font-size: 1.8em;
+            color: #2e1153;
+            margin-bottom: 20px;
+        }
+
+        /* Painel de rematrícula */
+        .rematricula-panel {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .rematricula-panel h2 {
+            font-size: 1.5em;
+            color: #2e1153;
+            margin-bottom: 15px;
+        }
+
+        .instructions {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .disciplinas-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .disciplina-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .disciplina-item input[type="checkbox"] {
+            margin-right: 15px;
+        }
+
+        .disciplina-item label {
+            font-size: 1em;
+            color: #333;
+            flex: 1;
+        }
+
+        .confirm-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #2e1153;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .confirm-button:hover {
+            background-color: #4c3575;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Nova Era</div>
+            <nav>
+                <ul>
+                    <li><a href="areaAluno.html">Home</a></li>
+                    <li><a href="vida-academica.html">Vida Acadêmica</a></li>
+                    <li><a href="financeiro.html">Financeiro</a></li>
+                    <li><a href="rematricula.html" class="active">Rematrícula</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1>Rematrícula</h1>
+
+            <div class="rematricula-panel">
+                <h2>Disciplinas Disponíveis para Rematrícula</h2>
+                <p class="instructions">Selecione as disciplinas que deseja cursar no próximo semestre. Após selecionar, clique em "Confirmar Rematrícula" para concluir o processo.</p>
+
+                <div class="disciplinas-lista">
+                    <div class="disciplina-item">
+                        <input type="checkbox" id="disciplina1">
+                        <label for="disciplina1">Algoritmos e Programação</label>
+                    </div>
+                    <div class="disciplina-item">
+                        <input type="checkbox" id="disciplina2">
+                        <label for="disciplina2">Estrutura de Dados</label>
+                    </div>
+                    <div class="disciplina-item">
+                        <input type="checkbox" id="disciplina3">
+                        <label for="disciplina3">Sistemas Operacionais</label>
+                    </div>
+                    <div class="disciplina-item">
+                        <input type="checkbox" id="disciplina4">
+                        <label for="disciplina4">Banco de Dados</label>
+                    </div>
+                    <div class="disciplina-item">
+                        <input type="checkbox" id="disciplina5">
+                        <label for="disciplina5">Redes de Computadores</label>
+                    </div>
+                </div>
+
+                <button class="confirm-button" onclick="confirmarRematricula()">Confirmar Rematrícula</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function confirmarRematricula() {
+            const disciplinasSelecionadas = Array.from(document.querySelectorAll('.disciplina-item input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.nextElementSibling.textContent);
+
+            if (disciplinasSelecionadas.length > 0) {
+                alert(`Rematrícula confirmada para as disciplinas:\n- ${disciplinasSelecionadas.join('\n- ')}`);
+            } else {
+                alert("Por favor, selecione ao menos uma disciplina para a rematrícula.");
+            }
+        }
+    </script>
+</body>
+</html>

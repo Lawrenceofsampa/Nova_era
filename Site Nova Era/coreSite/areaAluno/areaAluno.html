@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Área do Aluno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Menu Lateral */
+        .sidebar {
+            width: 250px;
+            background-color: #2e1153;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .sidebar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1em;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .sidebar nav ul li a.active,
+        .sidebar nav ul li a:hover {
+            background-color: #8c6cf0;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .main-content h1 {
+            font-size: 1.8em;
+            color: #2e1153;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Menu Lateral -->
+        <aside class="sidebar">
+            <div class="logo">Nova Era</div>
+            <nav>
+                <ul>
+                    <li><a href="areaAluno.html" class="active">Home</a></li>
+                    <li><a href="vida-academica.html">Vida Acadêmica</a></li>
+                    <li><a href="financeiro.html">Financeiro</a></li>
+                    <li><a href="rematricula.html">Rematrícula</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <h1>Bem-vindo(a) à Home da Área do Aluno</h1>
+            <p>Esse é o painel principal onde você pode navegar por todas as funcionalidades.</p>
+            <p>A partir deste menu, você pode acessar sua conta, visualizar seus cursos, gerenciar aspectos financeiros e acompanhar seu desempenho acadêmico. Use as opções à esquerda para explorar os recursos disponíveis.</p>
+        </main>
+    </div>
+</body>
+</html>

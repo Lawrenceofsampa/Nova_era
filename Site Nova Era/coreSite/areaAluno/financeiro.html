@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financeiro - Área do Aluno</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2e1153;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .sidebar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1em;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .sidebar nav ul li a.active,
+        .sidebar nav ul li a:hover {
+            background-color: #8c6cf0;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .main-content h1 {
+            font-size: 1.8em;
+            color: #2e1153;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos específicos para a seção Financeiro */
+        .financeiro-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        .filtros {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filtro {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #2e1153;
+        }
+
+        .filtro.active,
+        .filtro:hover {
+            background-color: #8c6cf0;
+            color: #ffffff;
+        }
+
+        .mensalidades-lista {
+            flex: 2;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mensalidade {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .mensalidade h2 {
+            font-size: 1.2em;
+            color: #2e1153;
+        }
+
+        .mensalidade p {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+
+        .status.em-aberto {
+            background-color: #ffeb99;
+            color: #705600;
+        }
+
+        .status.vencida {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .instrucao-pagamento {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para o formulário de pagamento */
+        .payment-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+            display: none; /* Oculto inicialmente */
+        }
+
+        .payment-form h2 {
+            font-size: 1.5em;
+            color: #2e1153;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-group-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-group-row .form-group {
+            flex: 1;
+        }
+
+        .payment-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #2e1153;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .payment-button:hover {
+            background-color: #4c3575;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Nova Era</div>
+            <nav>
+                <ul>
+                    <li><a href="areaAluno.html">Home</a></li>
+                    <li><a href="meus-cursos.html">Meus Cursos</a></li>
+                    <li><a href="vida-academica.html">Vida Acadêmica</a></li>
+                    <li><a href="financeiro.html" class="active">Financeiro</a></li>
+                    <li><a href="rematricula.html">Rematrícula</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="financeiro-section">
+                <!-- Lista de Mensalidades -->
+                <div class="mensalidades-lista" id="mensalidades-lista">
+                    <h1>Acordos e Pagamentos</h1>
+                    <div class="filtros">
+                        <button class="filtro active" onclick="filtrar('todos')">Todos</button>
+                        <button class="filtro" onclick="filtrar('vencidas')">Vencidas</button>
+                        <button class="filtro" onclick="filtrar('em-aberto')">Em Aberto</button>
+                    </div>
+
+                    <div class="mensalidade" onclick="mostrarFormularioPagamento('Novembro 2024', '235,47')">
+                        <h2>Novembro 2024 | Mensalidade</h2>
+                        <p>R$ 235,47 - Vencimento: 12 de Novembro</p>
+                        <span class="status em-aberto">Em Aberto</span>
+                    </div>
+
+                    <div class="mensalidade" onclick="mostrarFormularioPagamento('Dezembro 2024', '235,47')">
+                        <h2>Dezembro 2024 | Mensalidade</h2>
+                        <p>R$ 235,47 - Vencimento: 10 de Dezembro</p>
+                        <span class="status em-aberto">Em Aberto</span>
+                    </div>
+                </div>
+
+                <!-- Instruções de Pagamento -->
+                <aside class="instrucao-pagamento">
+                    <h2>Agora é muito fácil pagar a mensalidade</h2>
+                    <p>Além de conferir o seu extrato detalhado, agora você pode pagar uma ou mais mensalidades de uma vez só.</p>
+                    <ul>
+                        <li>Selecione o mês de referência na lista ao lado</li>
+                        <li>Confirme o valor e clique em "Pagar"</li>
+                        <li>Escolha a forma de pagamento e conclua a transação</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <div class="payment-form" id="payment-form">
+                <h2>Pagamento da Mensalidade</h2>
+                <p id="mensalidade-info"></p>
+                <form onsubmit="return processPayment(event)">
+                    <div class="form-group">
+                        <label for="card-number">Número do Cartão</label>
+                        <input type="text" id="card-number" placeholder="Digite o número do cartão" required>
+                    </div>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="expiry-date">Data de Validade</label>
+                            <input type="text" id="expiry-date" placeholder="MM/AA" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="CVV" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardholder-name">Nome do Titular</label>
+                        <input type="text" id="cardholder-name" placeholder="Nome impresso no cartão" required>
+                    </div>
+                    <button type="submit" class="payment-button">Confirmar Pagamento</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function filtrar(status) {
+            document.querySelectorAll('.filtro').forEach(filtro => filtro.classList.remove('active'));
+            document.querySelector(`.filtro[onclick="filtrar('${status}')"]`).classList.add('active');
+
+            document.querySelectorAll('.mensalidade').forEach(mensalidade => {
+                const mensalidadeStatus = mensalidade.getAttribute('data-status');
+                mensalidade.style.display = (status === 'todos' || mensalidadeStatus === status) ? 'flex' : 'none';
+            });
+        }
+
+        function mostrarFormularioPagamento(mes, valor) {
+            document.getElementById('mensalidade-info').innerText = `Pagamento da Mensalidade de ${mes} - R$ ${valor}`;
+            document.getElementById('mensalidades-lista').style.display = 'none';
+            document.getElementById('payment-form').style.display = 'block';
+        }
+
+        function processPayment(event) {
+            event.preventDefault();
+            alert("Pagamento realizado com sucesso!");
+            document.getElementById("payment-form").reset();
+            document.getElementById('payment-form').style.display = 'none';
+            document.getElementById('mensalidades-lista').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
+

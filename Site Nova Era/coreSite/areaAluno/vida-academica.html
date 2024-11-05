@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida Acadêmica - Área do Aluno</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2e1153;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .sidebar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1em;
+            display: block;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .sidebar nav ul li a.active,
+        .sidebar nav ul li a:hover {
+            background-color: #8c6cf0;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .main-content h1 {
+            font-size: 1.8em;
+            color: #2e1153;
+            margin-bottom: 20px;
+        }
+
+        .academic-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Painel de dados acadêmicos */
+        .academic-info {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .academic-info h2 {
+            font-size: 1.5em;
+            color: #2e1153;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-details .info-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-details .info-group label {
+            font-weight: bold;
+            color: #333;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .info-details .info-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Histórico Acadêmico */
+        .historico-panel {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .historico-panel h2 {
+            font-size: 1.5em;
+            color: #2e1153;
+            margin-bottom: 15px;
+        }
+
+        .historico-panel table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .historico-panel th, .historico-panel td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 0.9em;
+        }
+
+        .historico-panel th {
+            background-color: #2e1153;
+            color: #ffffff;
+        }
+
+        .historico-panel .course-name {
+            font-weight: bold;
+            color: #2e1153;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">Nova Era</div>
+            <nav>
+                <ul>
+                    <li><a href="areaAluno.html">Home</a></li>
+                    <li><a href="vida-academica.html" class="active">Vida Acadêmica</a></li>
+                    <li><a href="financeiro.html">Financeiro</a></li>
+                    <li><a href="rematricula.html">Rematrícula</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <h1>Vida Acadêmica</h1>
+
+            <div class="academic-section">
+                <!-- Painel de dados acadêmicos -->
+                <div class="academic-info">
+                    <h2>Dados Acadêmicos</h2>
+                    <div class="info-details">
+                        <div class="info-group">
+                            <label for="rgm">RGM</label>
+                            <input type="text" id="rgm" value="12345678" disabled>
+                        </div>
+                        <div class="info-group">
+                            <label for="email-academico">E-mail Acadêmico</label>
+                            <input type="text" id="email-academico" value="aluno@exemplo.edu.br" disabled>
+                        </div>
+                        <div class="info-group">
+                            <label for="curso">Curso</label>
+                            <input type="text" id="curso" value="Tecnologia da Informação" disabled>
+                        </div>
+                        <div class="info-group">
+                            <label for="situacao">Situação</label>
+                            <input type="text" id="situacao" value="Ativo" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Painel de Histórico Acadêmico -->
+                <div class="historico-panel">
+                    <h2>Histórico Acadêmico</h2>
+
+                    <div class="course-name">Curso: Análise e Desenvolvimento de Sistemas</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Disciplina</th>
+                                <th>Semestre</th>
+                                <th>Nota Final</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Introdução à Programação</td>
+                                <td>1º Semestre</td>
+                                <td>9.0</td>
+                            </tr>
+                            <tr>
+                                <td>Algoritmos e Estruturas de Dados</td>
+                                <td>2º Semestre</td>
+                                <td>8.5</td>
+                            </tr>
+                            <tr>
+                                <td>Banco de Dados</td>
+                                <td>2º Semestre</td>
+                                <td>7.8</td>
+                            </tr>
+                            <tr>
+                                <td>Engenharia de Software</td>
+                                <td>3º Semestre</td>
+                                <td>9.2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="course-name">Curso: Redes de Computadores</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Disciplina</th>
+                                <th>Semestre</th>
+                                <th>Nota Final</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Fundamentos de Redes</td>
+                                <td>1º Semestre</td>
+                                <td>8.7</td>
+                            </tr>
+                            <tr>
+                                <td>Protocolos de Redes</td>
+                                <td>2º Semestre</td>
+                                <td>7.5</td>
+                            </tr>
+                            <tr>
+                                <td>Administração de Redes</td>
+                                <td>3º Semestre</td>
+                                <td>8.9</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatos - EduMatric</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #2e1153;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4c3575;
+            font-size: 1.6em;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .team-section, .form-section {
+            margin-top: 30px;
+        }
+
+        .team-section .member {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+        }
+
+        .member h3 {
+            margin: 0;
+            color: #8c6cf0;
+            font-size: 1.2em;
+        }
+
+        .member p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-section label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .form-section input, .form-section textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-top: 5px;
+            font-size: 1em;
+        }
+
+        .form-section textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .submit-button {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #8c6cf0;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #6a51b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contatos</h1>
+
+        <h2>Nossa Equipe</h2>
+        <div class="team-section">
+            <div class="member">
+                <h3>Elizeu da Silva</h3>
+                <p>Email: elizeu.silva@novara.edu</p>
+                <p>Telefone: (11) 91234-5678</p>
+            </div>
+            <div class="member">
+                <h3>João Vitor</h3>
+                <p>Email: joao.vitor@novara.edu</p>
+                <p>Telefone: (11) 97654-3210</p>
+            </div>
+            <div class="member">
+                <h3>Bruno Oliveira</h3>
+                <p>Email: bruno.oliveira@novara.edu</p>
+                <p>Telefone: (11) 98765-4321</p>
+            </div>
+            <div class="member">
+                <h3>Gustavo Gambini</h3>
+                <p>Email: gustavo.gambini@novara.edu</p>
+                <p>Telefone: (11) 99876-5432</p>
+            </div>
+        </div>
+
+        <h2>Fale Conosco</h2>
+        <div class="form-section">
+            <form id="contactForm" onsubmit="enviarMensagem(event)">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" placeholder="Escreva sua mensagem" required></textarea>
+
+                <button type="submit" class="submit-button">Enviar Mensagem</button>
+
+        <div class="button-container">
+            <a href="index.html" class="learn-more-button">Voltar</a>
+        </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <script>
+        function enviarMensagem(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const mensagem = document.getElementById("message").value;
+
+            alert(`Mensagem enviada com sucesso!\n\nNome: ${nome}\nEmail: ${email}\nMensagem: ${mensagem}`);
+            
+            document.getElementById("contactForm").reset();
+        }
+    </script>
+</body>
+</html>
